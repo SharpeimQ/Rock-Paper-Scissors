@@ -44,6 +44,17 @@
             //If the result is 'rock','paper', or 'scissors'
             //Return playerChoice
             //If not, repeat the user-input sequence
+            function getPlayerChoice(playerChoice) {
+                let playerInput;
+                do {
+                playerInput = prompt("Enter Rock, Paper, or Scissors!");
+                playerChoice = playerInput.toLowerCase();
+                }
+                while ((playerChoice !== 'rock') && (playerChoice !== 'paper') && (playerChoice !== 'scissors'));
+                console.log(playerChoice)
+                return playerChoice;
+            }
+            getPlayerChoice(playerChoice);
 
         //playRound() / A game algorithm function to determine the winner and loser of the match 
             //Pass the strings playerChoice and computerChoice and combine them into one string:
