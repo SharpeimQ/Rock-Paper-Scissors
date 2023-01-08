@@ -36,7 +36,8 @@
                 }
                 return computerChoice;
             }
-
+        computerChoice = getComputerChoice(computerChoice);
+        console.log(computerChoice);
         //getPlayerChoice() to get input options from player
             //Pass the string playerChoice into this function
             //Request user-input and hold the input into a new string called playerInput
@@ -54,16 +55,29 @@
                 console.log(playerChoice)
                 return playerChoice;
             }
-            getPlayerChoice(playerChoice);
-
+            playerChoice = getPlayerChoice(playerChoice);
+            console.log(playerChoice);
         //playRound() / A game algorithm function to determine the winner and loser of the match 
             //Pass the strings playerChoice and computerChoice and combine them into one string:
-            //
+            //Declare a new string with the concatenated values of playerChoice and computerChoice
             //If playerChoice is === to computerChoice, return a "tie"
-            //else-if rock-scissor / rock-paper / paper-scissor / paper-rock / scissor-rock / scissor-paper
+            //else-if rockscissor / rockpaper / paperscissor / paperrock / scissorrock / scissorpaper
             //Return "You win/lose, playerChoice beats/losses to computerChoice"
             //If player wins, increase playerCount by one. If computer wins, increase computerCount by one
-
+            function playRound(playerChoice, computerChoice) {
+                let conCat = playerChoice + computerChoice;
+                console.log(conCat);
+                if (playerChoice === computerChoice) {
+                    console.log("This round is a tie! No points added!");
+                } else if ((conCat === "rockscissor") && (conCat === "paperrock") && (conCat === "scissorpaper")) {
+                    console.log("You win this round!", playerChoice, "beats", computerChoice);
+                    playerCount++;
+                } else {
+                    console.log("You lose this round!", playerChoice, "loses to", computerChoice);
+                    computerCount++;
+                }
+            }
+            playRound(playerChoice, computerChoice);
         //game() / A loop to repeat the game algorithm for a best of 5 match
             //Surround the entire algorithm in a while-loop that only breaks when playerCount or computerCount is equal to 3
 
