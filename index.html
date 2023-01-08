@@ -65,9 +65,10 @@
             //If player wins, increase playerCount by one. If computer wins, increase computerCount by one
             function playRound(playerChoice, computerChoice) {
                 let conCat = playerChoice + computerChoice;
+                console.log(conCat);
                 if (playerChoice === computerChoice) {
                     console.log("This round is a tie! No points added!");
-                } else if ((conCat === "rockscissor") && (conCat === "paperrock") && (conCat === "scissorpaper")) {
+                } else if ((conCat === 'rockscissors') || (conCat === 'paperrock') || (conCat === 'scissorspaper')) {
                     console.log("You win this round!", playerChoice, "beats", computerChoice);
                     playerCount++;
                 } else {
@@ -85,9 +86,9 @@
                     playRound(playerChoice, computerChoice);
                 }
                 if (playerCount === 3) {
-                    alert("Congratulations! YOU WIN!")
+                    console.log("Congratulations! YOU WIN!")
                 }else {
-                    alert("Unfortunately! YOU LOSE!")
+                    console.log("Unfortunately! YOU LOSE!")
                 }  
             }
 
