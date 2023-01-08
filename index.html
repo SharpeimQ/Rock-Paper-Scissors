@@ -8,7 +8,37 @@
 </head>
 <body>
     <script>
-        
+        //Declare necessary data types: 
+            //Declare strings: playerChoice and computerChoice
+            //Declare integers: playerCount and computerCount + set them to 0
+
+        //getComputerChoice() to receive options varying from "Rock Paper Scissors"
+            //Pass the string computerChoice through this function
+            //Declare randNumber as an integer
+            //Use a random number method and to output a result of 0-2 and store that result in randNumber
+            //Use a switch to give 'rock', 'paper', 'scissor' and assign it to computerChoice depending on the number (0,1,2)
+            //Return computerChoice
+
+        //getPlayerChoice() to get input options from player
+            //Pass the string playerChoice into this function
+            //Request user-input and hold the input into a new string called playerInput
+            //Use the lowerCase method on playerInput and store the result in playerChoice
+            //If the result is 'rock','paper', or 'scissors'
+            //Return playerChoice
+            //If not, repeat the user-input sequence
+
+        //playRound() / A game algorithm function to determine the winner and loser of the match 
+            //Pass the strings playerChoice and computerChoice and combine them into one string:
+            //
+            //If playerChoice is === to computerChoice, return a "tie"
+            //else-if rock-scissor / rock-paper / paper-scissor / paper-rock / scissor-rock / scissor-paper
+            //Return "You win/lose, playerChoice beats/losses to computerChoice"
+            //If player wins, increase playerCount by one. If computer wins, increase computerCount by one
+
+        //game() / A loop to repeat the game algorithm for a best of 5 match
+            //Surround the entire algorithm in a while-loop that only breaks when playerCount or computerCount is equal to 3
+
+
     </script>
 </body>
 </html>
