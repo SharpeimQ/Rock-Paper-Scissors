@@ -8,22 +8,25 @@ const scissors = document.getElementById('scissors');
 const results = document.getElementById('Results');
 const scoreCounter = document.getElementById('scoreCounter');
 
-
- rock.addEventListener('click', (playerChoice, computerChoice) => {
+rock.addEventListener('click', (playerChoice, computerChoice) => {
      playerChoice = 'rock';
      computerChoice = getComputerChoice(computerChoice);
      playRound(playerChoice, computerChoice);
+     game();
  })
  paper.addEventListener('click', (playerChoice, computerChoice)  => {
      playerChoice = 'paper';
      computerChoice = getComputerChoice(computerChoice);
      playRound(playerChoice, computerChoice);
+     game();
  })
  scissors.addEventListener('click', (playerChoice, computerChoice)  => {
      playerChoice = 'scissors';
      computerChoice = getComputerChoice(computerChoice);
      playRound(playerChoice, computerChoice);
+     game();
  })
+
  
  function getComputerChoice(computerChoice) {
      let randNumber = Math.floor(Math.random() * 3);
@@ -52,18 +55,22 @@ const scoreCounter = document.getElementById('scoreCounter');
          computerCount++;
      }
  }
- function game(playerChoice, computerChoice) {
-     while (playerCount < 3 & computerCount < 3) {
-         computerChoice = getComputerChoice(computerChoice);
+ function game() {
+     //while (playerCount < 3 & computerCount < 3) {
+         //computerChoice = getComputerChoice(computerChoice);
          //playerChoice = getPlayerChoice(playerChoice);
-         playRound(playerChoice, computerChoice);
-     }
+         //playRound(playerChoice, computerChoice);
+     //}
      if (playerCount === 3) {
-         console.log("Congratulations! YOU WIN!")
-     }else {
-         console.log("Unfortunately! YOU LOSE!")
-     }  
- }
+         console.log("Congratulations! YOU WIN!");
+         computerCount = 0;
+         playerCount = 0;
+     }else if (computerCount === 3){
+         console.log("Unfortunately! YOU LOSE!");
+         computerCount = 0;
+         playerCount = 0;
+     }
+}
  // function getPlayerChoice(playerChoice) {
  //     let playerInput;
  //     do {
