@@ -46,12 +46,27 @@ rock.addEventListener('click', (playerChoice, computerChoice) => {
  function playRound(playerChoice, computerChoice) {
      let conCat = playerChoice + computerChoice;
      if (playerChoice === computerChoice) {
-         console.log("This round is a tie! No points added!");
+         let tie = document.createElement('h1');
+         tie.innerText = `This round is a tie! No points added! You both chose ${playerChoice}!`;
+         results.append(tie);
+         setTimeout(() => {
+            tie.remove();
+         }, 3000);
      } else if ((conCat === 'rockscissors') || (conCat === 'paperrock') || (conCat === 'scissorspaper')) {
-         console.log("You win this round!", playerChoice, "beats", computerChoice);
+         let tie = document.createElement('h1');
+         tie.innerText = `You win this round! ${computerChoice} loses to ${playerChoice}!`;
+         results.append(tie);
+         setTimeout(() => {
+            tie.remove();
+         }, 3000);
          playerCount++;
      } else {
-         console.log("You lose this round!", playerChoice, "loses to", computerChoice);
+         let tie = document.createElement('h1');
+         tie.innerText = `You lose this round! ${playerChoice} loses to ${computerChoice}!`;
+         results.append(tie);
+         setTimeout(() => {
+            tie.remove();
+         }, 3000);
          computerCount++;
      }
  }
