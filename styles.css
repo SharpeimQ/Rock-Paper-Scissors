@@ -14,11 +14,12 @@
     margin: 0 30% 0 30%;
 }
 
-.Footer {
+#Results {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 30px;
 }
 
 button {
@@ -33,4 +34,14 @@ button {
 
 body {
     background-color: beige;
+}
+
+#scoreCounter {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+#Footer {
+    text-align: center;
 }

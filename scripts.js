@@ -7,7 +7,12 @@ const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 const results = document.getElementById('Results');
 const scoreCounter = document.getElementById('scoreCounter');
+const player = document.getElementById('player');
+const computer = document.getElementById('computer');
+const Footer = document.getElementById('Footer');
 
+player.innerText = `User: ${playerCount}`;
+computer.innerText = `Comp: ${computerCount}`;
 rock.addEventListener('click', (playerChoice, computerChoice) => {
      playerChoice = 'rock';
      computerChoice = getComputerChoice(computerChoice);
@@ -46,26 +51,26 @@ rock.addEventListener('click', (playerChoice, computerChoice) => {
  function playRound(playerChoice, computerChoice) {
      let conCat = playerChoice + computerChoice;
      if (playerChoice === computerChoice) {
-         let tie = document.createElement('h1');
-         tie.innerText = `This round is a tie! No points added! You both chose ${playerChoice}!`;
-         results.append(tie);
+         let noti = document.createElement('h3');
+         noti.innerText = `This round is a tie! No points added! You both chose ${playerChoice}!`;
+         results.append(noti);
          setTimeout(() => {
-            tie.remove();
+            noti.remove();
          }, 3000);
      } else if ((conCat === 'rockscissors') || (conCat === 'paperrock') || (conCat === 'scissorspaper')) {
-         let tie = document.createElement('h1');
-         tie.innerText = `You win this round! ${computerChoice} loses to ${playerChoice}!`;
-         results.append(tie);
+         let noti = document.createElement('h3');
+         noti.innerText = `You win this round! ${computerChoice} loses to ${playerChoice}!`;
+         results.append(noti);
          setTimeout(() => {
-            tie.remove();
+            noti.remove();
          }, 3000);
          playerCount++;
      } else {
-         let tie = document.createElement('h1');
-         tie.innerText = `You lose this round! ${playerChoice} loses to ${computerChoice}!`;
-         results.append(tie);
+         let noti = document.createElement('h3');
+         noti.innerText = `You lose this round! ${playerChoice} loses to ${computerChoice}!`;
+         results.append(noti);
          setTimeout(() => {
-            tie.remove();
+            noti.remove();
          }, 3000);
          computerCount++;
      }
@@ -75,15 +80,35 @@ rock.addEventListener('click', (playerChoice, computerChoice) => {
          //computerChoice = getComputerChoice(computerChoice);
          //playerChoice = getPlayerChoice(playerChoice);
          //playRound(playerChoice, computerChoice);
-     //}
-     if (playerCount === 3) {
-         console.log("Congratulations! YOU WIN!");
-         computerCount = 0;
-         playerCount = 0;
-     }else if (computerCount === 3){
-         console.log("Unfortunately! YOU LOSE!");
-         computerCount = 0;
-         playerCount = 0;
+     //
+     player.innerText = `User: ${playerCount}`;
+     computer.innerText = `Comp: ${computerCount}`;
+     if (playerCount >= 3) {
+        let end = document.createElement('h1');
+        end.innerText = `CONGRATULATIONS! YOU WIN! ${playerCount} TO ${computerCount}!`;
+        end.style.backgroundColor = "black";
+        end.style.color = "white";
+        end.style.border = "10px";
+        end.style.borderColor = "white";
+        Footer.append(end);
+        setTimeout(() => {
+           end.remove();
+        }, 5000)
+        computerCount = 0;
+        playerCount = 0;
+     }else if (computerCount >= 3){
+         let end = document.createElement('h1');
+         end.innerText = `Unfortunately! YOU LOSE! ${computerCount} TO ${playerCount}!`;
+         end.style.backgroundColor = "black";
+         end.style.color = "white";
+         end.style.border = "10px";
+         end.style.borderColor = "white";
+         Footer.append(end);
+         setTimeout(() => {
+            end.remove();
+         }, 5000)
+        computerCount = 0;
+        playerCount = 0;
      }
 }
  // function getPlayerChoice(playerChoice) {
